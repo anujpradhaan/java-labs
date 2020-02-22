@@ -50,24 +50,36 @@ services:
       - 8080:8080
     networks:
       - proxynet
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    networks:
+      - proxynet
 
-#  consumer1:
-#    build: ../../consumer
-#    container_name: consumer1
-#    tty: true
-#    links:
-#      - rabbitmq
-#    networks:
-#      - proxynet
-#
-#  consumer2:
-#    build: ../../consumer
-#    container_name: consumer2
-#    tty: true
-#    links:
-#      - rabbitmq
-#    networks:
-#      - proxynet
+
+  consumer1:
+    build: ../../consumer
+    container_name: consumer1
+    tty: true
+    ports:
+      - 8082:8082
+    links:
+      - rabbitmq
+      - mongodb
+    networks:
+      - proxynet
+
+  consumer2:
+    build: ../../consumer
+    container_name: consumer2
+    tty: true
+    links:
+      - rabbitmq
+      - mongodb
+    networks:
+      - proxynet
 
 networks:
   proxynet:
