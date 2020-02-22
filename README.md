@@ -2,7 +2,9 @@
 This repo is a collection of some good quality coding, architectural assignments.
 
 
-n continuation to the Assignment 1, this assignment is focused on creating a High Availability Service similar to what we create on AWS. 
+In continuation to the Assignment 1, this assignment is focused on creating a High Availability Service similar to what we create on AWS.  
+
+https://github.com/anujpradhaan/java-labs/blob/master/assignment2/Java%20labs%20-%20Assignment%202.pdf is the Problem statement.
 
 In last assignment we created 2 services. 
 Service 1 : A rest api producing events together with some data.
