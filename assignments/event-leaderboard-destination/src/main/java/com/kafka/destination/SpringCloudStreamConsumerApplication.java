@@ -1,13 +1,13 @@
-package com.events.kafka;
+package com.kafka.destination;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringCloudStreamDemoApplication {
+public class SpringCloudStreamConsumerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringCloudStreamDemoApplication.class, args);
+		SpringApplication.run(SpringCloudStreamConsumerApplication.class, args);
 	}
 
 }
