@@ -25,9 +25,9 @@ public class Producer {
 		gameSource.output().send(MessageBuilder.withPayload(gameProgress).build());
 	}
 
+	@Async
 	public void sendMessage(int totalNumber) {
-	//	IntStream.range(1, totalNumber).forEach(this::sendGameProgressMessage);
-		sendGameProgressMessage(1);
+		IntStream.range(1, totalNumber).forEach(this::sendGameProgressMessage);
 	}
 
 	private void sendGameProgressMessage(int i) {

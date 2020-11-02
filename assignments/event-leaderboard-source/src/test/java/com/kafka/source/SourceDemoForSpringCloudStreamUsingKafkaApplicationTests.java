@@ -14,6 +14,8 @@ import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 @ContextConfiguration(classes = SourceDemoForSpringCloudStreamUsingKafkaApplication.class)
 @DirtiesContext
@@ -43,7 +45,11 @@ class SourceDemoForSpringCloudStreamUsingKafkaApplicationTests {
 				.getPayload();
 
 		GameProgress gameProgress1 = objectMapper.readValue(payload.toString(), GameProgress.class);
-		Assertions.assertEquals(gameProgress1.getUserId(), gameProgress.getUserId());
+		assertEquals(gameProgress1.getUserId(), gameProgress.getUserId());
+		assertTrue(gameProgress1.getUserId() < GameFactory.Constants.ONE_ABOVE_USER_ID_MAX);
+		assertTrue(gameProgress1.getLevel() < GameFactory.Constants.ONE_ABOVE_LEVEL_MAX);
+		assertTrue(gameProgress1.getTimeSpent() < GameFactory.Constants.ONE_ABOVE_TIME_SPENT_MAX);
+		assertTrue(gameProgress1.getGameCompletionPercent() <= GameFactory.Constants.PROGRESS_MAX);
 	}
 
 }
